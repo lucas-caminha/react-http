@@ -34,6 +34,81 @@
       "name": "Teclado",
       "price": "110",
       "id": 7
+    },
+    {
+      "name": "Teste",
+      "price": "10",
+      "id": 8
+    },
+    {
+      "name": "dbo",
+      "price": "1",
+      "id": 9
+    },
+    {
+      "name": "Cadeira",
+      "price": "1000",
+      "id": 10
+    },
+    {
+      "name": "Luva",
+      "price": "5",
+      "id": 11
+    },
+    {
+      "name": "Carro",
+      "price": "50000.00",
+      "id": 12
+    },
+    {
+      "name": "Carro",
+      "price": "50000.00",
+      "id": 13
+    },
+    {
+      "name": "Moto",
+      "price": "11000.00",
+      "id": 14
+    },
+    {
+      "name": "Moto",
+      "price": "11000.00",
+      "id": 15
+    },
+    {
+      "name": "Moto2",
+      "price": "11000.00",
+      "id": 16
+    },
+    {
+      "name": "Moto2",
+      "price": "11000.00",
+      "id": 17
+    },
+    {
+      "name": "Moto2",
+      "price": "11000.00",
+      "id": 18
+    },
+    {
+      "name": "Moto2",
+      "price": "11000.00",
+      "id": 19
+    },
+    {
+      "name": "Teste",
+      "price": "1",
+      "id": 20
+    },
+    {
+      "name": "Teste Lentidão",
+      "price": "5",
+      "id": 21
+    },
+    {
+      "name": "Teste Lentidão",
+      "price": "5",
+      "id": 22
     }
   ]
 }

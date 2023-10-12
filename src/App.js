@@ -8,22 +8,10 @@ const urlBase = "http://localhost:3000/products"
 function App() {
 
   const [products, setProducts] = useState([]);
-
-  /** Custom **/
-  const { data : items } = useFetch(urlBase);
-
   const [name, setName] = useState("");
   const [price, setPrice]  = useState("");
+  const { data : items, httpConfig, loading } = useFetch(urlBase);
 
-  /** Consulta Async de Lista de Produtos **/
-  useEffect(() => {
-    async function buscaListaProdutos() {
-      const res = await fetch(urlBase)
-      const data = await res.json();
-      setProducts(data);
-    }
-    buscaListaProdutos();
-  }, []);
 
   /** Async Adiciona Produto **/
   const handleSubmit = async (e) => {
@@ -34,32 +22,23 @@ function App() {
       price,
     };
 
-    const res = await fetch(urlBase, {
-      method: "POST", 
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(product),
-    })
+    httpConfig(product, "POST");
 
-      /** Carregamento Dinamico **/
-      const produtoAdicionado = await res.json();
-     setProducts((prevProducts) => [...prevProducts, produtoAdicionado]);
      setName("");
      setPrice("");
   }
 
-
-
-
   return (
     <div className="App">
       <h1>Lista de produtos</h1>
+      {loading && <p>Carregando dados...</p>}
+      {!loading && (
       <ul>
         {items && items.map((product) => (
           <li key={product.id}>{product.name} - R${product.price}</li>
         ))}
       </ul>
+      )}
       <div className='add-product'>
           <form onSubmit={handleSubmit}>
             <label>
@@ -70,7 +49,8 @@ function App() {
               Preço:
               <input value={price} name='price' type='number' onChange={(e) => setPrice(e.target.value)}></input>
             </label>
-            <input type='submit' value="Criar"></input>
+            {loading && <input type='submit' disabled value="Aguarde"></input>}
+            {!loading && <input type='submit' value="Criar"></input>}
           </form>
       </div>
     </div>
